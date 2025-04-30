@@ -15,7 +15,7 @@ def generer_erreur_si_board_inexistant(
 ) -> None:
     """
     Fonction qui génère une erreur si le board n'existe pas.
-    
+
     Args:
         nom_board (str): Nom du board à vérifier.
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
@@ -30,10 +30,10 @@ def generer_erreur_si_board_inexistant(
 def liste_boards(dictionnaire_trello: dict) -> tuple:
     """
     Fonction qui renvoie la liste des boards.
-    
+
     Args:
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
-        
+
     Returns:
         tuple: Liste des noms de boards.
     """
@@ -43,11 +43,11 @@ def liste_boards(dictionnaire_trello: dict) -> tuple:
 def ajouter_board(nom_board: str, dictionnaire_trello: dict) -> dict:
     """
     Fonction qui ajoute un board au dictionnaire.
-    
+
     Args:
         nom_board (str): Nom du board à ajouter.
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
-        
+
     Returns:
         dict: Dictionnaire contenant le nouveau board.
     """
@@ -62,11 +62,11 @@ def ajouter_board(nom_board: str, dictionnaire_trello: dict) -> dict:
 def board(nom_board: str, dictionnaire_trello: dict) -> dict:
     """
     Fonction qui renvoie le board correspondant au nom donné.
-    
+
     Args:
         nom_board (str): Nom du board à récupérer.
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
-        
+
     Returns:
         dict: Dictionnaire contenant le board demandé.
     """
@@ -77,11 +77,11 @@ def board(nom_board: str, dictionnaire_trello: dict) -> dict:
 def supprimer_board(nom_board: str, dictionnaire_trello: dict) -> None:
     """
     Fonction qui supprime un board du dictionnaire.
-    
+
     Args:
         nom_board (str): Nom du board à supprimer.
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
-        
+
     Returns:
         None
     """
@@ -97,13 +97,13 @@ def supprimer_tache(
 ) -> None:
     """
     Fonction qui supprime une tâche du board.
-    
+
     Args:
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
         nom_board (str): Nom du board à supprimer.
         nom_colonne (str): Nom de la colonne à supprimer.
         libelle_tache (str): Libellé de la tâche à supprimer.
-        
+
     Returns:
         None
     """
@@ -114,10 +114,10 @@ def supprimer_tache(
 def generer_erreur_si_colonne_inexistante(nom_colonne: str) -> None:
     """
     Fonction qui génère une erreur si la colonne n'existe pas.
-    
+
     Args:
         nom_colonne (str): Nom de la colonne à vérifier.
-        
+
     Returns:
         None
     """
@@ -130,13 +130,13 @@ def ajouter_tache(
 ) -> None:
     """
     Fonction qui ajoute une tâche au board.
-    
+
     Args:
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
         nom_board (str): Nom du board à ajouter.
         nom_colonne (str): Nom de la colonne à ajouter.
         libelle_tache (str): Libellé de la tâche à ajouter.
-        
+
     Returns:
         None
     """
@@ -155,14 +155,14 @@ def deplacer_tache(
 ) -> None:
     """
     Fonction qui déplace une tâche d'une colonne à une autre.
-    
+
     Args:
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
         nom_board (str): Nom du board à déplacer.
         nom_colonne_origine (str): Nom de la colonne d'origine.
         nom_colonne_destination (str): Nom de la colonne de destination.
         libelle_tache (str): Libellé de la tâche à déplacer.
-        
+
     Returns:
         None
     """
@@ -175,12 +175,12 @@ def deplacer_tache(
 def liste_taches(dictionnaire_trello: dict, nom_board: str, nom_colonne: str) -> list:
     """
     Fonction qui renvoie la liste des tâches d'une colonne.
-    
+
     Args:
         dictionnaire_trello (dict): Dictionnaire contenant les boards.
         nom_board (str): Nom du board à lister.
         nom_colonne (str): Nom de la colonne à lister.
-        
+
     Returns:
         list: Liste des tâches de la colonne.
     """
