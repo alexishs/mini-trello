@@ -65,3 +65,9 @@ def ajouter_tache(
     board_taches = board(nom_board, dictionnaire_trello)
     liste_taches = board_taches[nom_colonne]
     liste_taches.append(libelle_tache)
+
+def liste_taches(dictionnaire_trello: dict, nom_board: str, nom_colonne: str) -> list:
+
+    board_liste_tache = board(nom_board, dictionnaire_trello)
+    generer_erreur_si_colonne_inexistante(nom_colonne, dictionnaire_trello)
+    return board_liste_tache[nom_colonne]
