@@ -34,3 +34,10 @@ def board(nom_board: str, dictionnaire_trello)-> dict:
 def supprimer_board(nom_board: str, dictionnaire_trello)-> None:
     generer_erreur_si_board_inexistant(nom_board, dictionnaire_trello)
     del(dictionnaire_trello[nom_board])
+
+def generer_erreur_si_colonne_inexistante(nom_colonne)
+    pass # développé par Romain
+
+def supprimer_tache(dictionnaire_trello: dict, nom_board: str, nom_colonne: str, libelle_tache: str)-> None:
+    generer_erreur_si_colonne_inexistante(nom_colonne)
+    board(nom_board, dictionnaire_trello)[nom_colonne].remove(libelle_tache)
