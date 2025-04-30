@@ -1,6 +1,15 @@
 import trello as tre
 
 def demander_choix_menu(liste_choix: list)-> int:
+    """
+    Fonction qui affiche un menu et demande à l'utilisateur de faire un choix.
+    
+    Args:
+        liste_choix (list): Liste des choix possibles.
+        
+    Returns:
+        int: L'index du choix fait par l'utilisateur.
+    """
     while True:
         print("Faites un choix...")
         for numero_choix in range(len(liste_choix)):
@@ -13,6 +22,15 @@ def demander_choix_menu(liste_choix: list)-> int:
         print("Numéro non reconnu.")
 
 def choisir_colonne()-> str:
+    """
+    Fonction qui demande à l'utilisateur de choisir une colonne.
+    
+    Args:
+        None
+        
+    Returns:
+        str: Le nom de la colonne choisie.
+    """
     print("Choisissez la colonne :")
     numero_choix = demander_choix_menu(("A faire", "En cours", "Terminés"))
     match numero_choix:
@@ -21,9 +39,26 @@ def choisir_colonne()-> str:
         case 2: return 'termine' 
 
 def choisir_libelle_tache()-> str:
+    """
+    Fonction qui demande à l'utilisateur de choisir un libellé de tâche.
+    
+    Args:
+        None
+    Returns:
+        str: Le libellé de la tâche choisie.
+    """
     return input('Saisissez un libellé de tache : ')
 
 def ouvrir_board(dictionnaire_trello: dict):
+    """
+    Fonction qui ouvre un board et affiche les options disponibles.
+    
+    Args:
+        dictionnaire_trello (dict): Dictionnaire contenant les boards.
+        
+    Returns:
+        None
+    """
     nom_board_choisi = input("Nom du board à ouvrir : ")
     print(f"debug : board ouvert : {tre.board(nom_board_choisi, dictionnaire_trello)}")
     choix = -1

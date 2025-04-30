@@ -4,6 +4,9 @@ import gestion_fichiers as gf
 
 
 def main():
+    """
+    Fonction principale du programme.
+    """
     dictionnaire_trello = gf.charger_fichier()
     # trello.supprimer_board('mon_premier_board')
     menu_principale = [
