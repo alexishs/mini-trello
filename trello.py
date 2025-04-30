@@ -1,5 +1,3 @@
-import json
-
     #Structure du fichier json
     #{ # dictionnaire de boards
     #    "nom du board" : { # board
@@ -9,29 +7,15 @@ import json
     #    },
     #}
 
-dictionnaire_trello = {}
 
-def charger_fichier()-> None:
-    global dictionnaire_trello
-    with open('trello.json') as fichier:
-        dictionnaire_trello = json.load(fichier)
-
-def enregistrer_fichier()-> None:
-    global dictionnaire_trello
-    with open('trello.json', 'w') as fichier:
-        fichier.write(json.dumps(dictionnaire_trello))
-
-def generer_erreur_si_board_inexistant(nom_board: str)-> None:
-    global dictionnaire_trello
+def generer_erreur_si_board_inexistant(nom_board: str, dictionnaire_trello)-> None:
     if not nom_board in dictionnaire_trello.keys():
         raise Exception(f'Le board "{nom_board}" n\'éxiste pas.')
 
-def liste_boards()->tuple:
-    global dictionnaire_trello
+def liste_boards(dictionnaire_trello)->tuple:
     return tuple(dictionnaire_trello.keys())
 
-def ajouter_board(nom_board: str)-> dict:
-    global dictionnaire_trello
+def ajouter_board(nom_board: str, dictionnaire_trello)-> dict:
     #if nom_board in dictionnaire_trello.keys():
     if nom_board in list(dictionnaire_trello.keys()):
         raise Exception(f'Le board "{nom_board}" éxiste déjà. Ajout impossible.')
@@ -43,12 +27,10 @@ def ajouter_board(nom_board: str)-> dict:
     dictionnaire_trello[nom_board] = nouveau_board
     return nouveau_board
 
-def board(nom_board: str)-> dict:
-    global dictionnaire_trello
-    generer_erreur_si_board_inexistant(nom_board)
+def board(nom_board: str, dictionnaire_trello)-> dict:
+    generer_erreur_si_board_inexistant(nom_board, dictionnaire_trello)
     return dictionnaire_trello[nom_board]
 
-def supprimer_board(nom_board: str)-> None:
-    global dictionnaire_trello
-    generer_erreur_si_board_inexistant(nom_board)
+def supprimer_board(nom_board: str, dictionnaire_trello)-> None:
+    generer_erreur_si_board_inexistant(nom_board, dictionnaire_trello)
     del(dictionnaire_trello[nom_board])
