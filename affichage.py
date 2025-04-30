@@ -1,11 +1,16 @@
 import trello as tre
 
 def demander_choix_menu(liste_choix: list)-> int:
-    print("Faites un choix...")
-    for numero_choix in range(len(liste_choix)):
-        print(f"{numero_choix + 1} : {liste_choix[numero_choix]}")
-    choix = int(input('Votre choix : ')) - 1
-    return choix
+    while True:
+        print("Faites un choix...")
+        for numero_choix in range(len(liste_choix)):
+            print(f"{numero_choix + 1} : {liste_choix[numero_choix]}")
+        choix = input('Votre choix : ')
+        if choix.isnumeric():
+            valeur_numerique = int(choix)
+            if 1 <= valeur_numerique <= (len(liste_choix) + 1):
+                return valeur_numerique - 1
+        print("Numéro non reconnu.")
 
 def choisir_colonne()-> str:
     print("Choisissez la colonne :")
