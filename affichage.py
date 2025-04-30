@@ -43,3 +43,4 @@ def ouvrir_board(dictionnaire_trello: dict):
             case 3:
                 nom_colonne = choisir_colonne()
                 print(tre.liste_taches(dictionnaire_trello, nom_board_choisi, nom_colonne))
+                
