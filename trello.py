@@ -50,9 +50,7 @@ def supprimer_tache(
     board(nom_board, dictionnaire_trello)[nom_colonne].remove(libelle_tache)
 
 
-def generer_erreur_si_colonne_inexistante(
-    nom_colonne: str, dictionnaire_trello: dict
-) -> None:
+def generer_erreur_si_colonne_inexistante(nom_colonne: str) -> None:
     if not nom_colonne in ("a_faire", "en_cours", "termine"):
         raise Exception(f'La colonne "{nom_colonne}" n\'existe pas.')
 
@@ -61,7 +59,7 @@ def ajouter_tache(
     dictionnaire_trello: dict, nom_board: str, nom_colonne: str, libelle_tache: str
 ) -> None:
 
-    generer_erreur_si_colonne_inexistante(nom_board, dictionnaire_trello)
+    generer_erreur_si_colonne_inexistante(nom_colonne)
     board_taches = board(nom_board, dictionnaire_trello)
     liste_taches = board_taches[nom_colonne]
     liste_taches.append(libelle_tache)
@@ -69,3 +67,6 @@ def ajouter_tache(
 def deplacer_tache(dictionnaire_trello: dict, nom_board: str, nom_colonne_origine: str, nom_colonne_destination: str, libelle_tache: str)-> None:
     supprimer_tache(dictionnaire_trello, nom_board, nom_colonne_origine, libelle_tache)
     ajouter_tache(dictionnaire_trello, nom_board, nom_colonne_destination, libelle_tache)
+
+def liste_taches(dictionnaire_trello: dict, nom_board: str, nom_colonne: str)-> None:
+    pass
