@@ -65,3 +65,7 @@ def ajouter_tache(
     board_taches = board(nom_board, dictionnaire_trello)
     liste_taches = board_taches[nom_colonne]
     liste_taches.append(libelle_tache)
+
+def deplacer_tache(dictionnaire_trello: dict, nom_board: str, nom_colonne_origine: str, nom_colonne_destination: str, libelle_tache: str)-> None:
+    supprimer_tache(dictionnaire_trello, nom_board, nom_colonne_origine, libelle_tache)
+    ajouter_tache(dictionnaire_trello, nom_board, nom_colonne_destination, libelle_tache)
